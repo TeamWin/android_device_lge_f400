@@ -23,17 +23,11 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=g3 user_d
 
 BOARD_KERNEL_BASE := 0x0000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x0008000 --ramdisk_offset 0x2000000 --second_offset 0x0f00000 --tags_offset 0x0000100
+BOARD_MKBOOTIMG_ARGS := --dt device/lge/f400/dtb --kernel_offset 0x0008000 --ramdisk_offset 0x2000000 --second_offset 0x0f00000 --tags_offset 0x0000100
+BOARD_CUSTOM_BOOTIMG_MK := device/lge/f400/mkbootimg.mk
 
 # prebuilt kernel
 TARGET_PREBUILT_KERNEL := device/lge/f400/kernel
-# else uncomment below to build from sauce
-# TARGET_KERNEL_SOURCE := kernel/lge/f400
-# TARGET_KERNEL_CONFIG := cyanogen_f400_defconfig
-# apparently this dont work but should ;x
-# TARGET_KERNEL_APPEND_DTB := true
-# use this instead
-# BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 14485760
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16485760
